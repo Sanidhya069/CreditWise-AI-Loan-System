@@ -55,9 +55,9 @@ if st.button("Predict", key="predict_button"):
        risk_score = max(risk_score, 85)
 
     # FORCE APPROVAL
-if cibil_score > 750 and debt_ratio < 0.5:
-    prediction = 1
-    risk_score = min(risk_score, 30)   
+    if cibil_score > 750 and debt_ratio < 0.5:
+      prediction = 1
+      risk_score = min(risk_score, 30)   
 
     st.subheader("📊 Prediction Result")
 
