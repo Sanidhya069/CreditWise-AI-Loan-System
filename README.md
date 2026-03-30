@@ -5,7 +5,6 @@ An AI-powered loan prediction system that analyzes financial data, calculates ri
 ---
 
 ## 🖥️ Application Preview
-
 <img src="https://github.com/Sanidhya069/CreditWise-AI-Loan-System/blob/main/assests/app.png?raw=true"/>
 
 ## 📊 Prediction Result (Approved)
@@ -13,6 +12,24 @@ An AI-powered loan prediction system that analyzes financial data, calculates ri
 
 ## ⚠️ Prediction Result (Rejected)
 <img src="https://github.com/Sanidhya069/CreditWise-AI-Loan-System/blob/main/assests/rejected.png?raw=true"/>
+
+## 🏗️ Project Architecture
+
+- ML Model → Loan prediction  
+- NLP Module → Text risk analysis  
+- LLM Module → Financial advice generation  
+- Streamlit → User Interface
+
+## 📌 Example
+
+**Input:**
+- Income: 1,200,000  
+- Loan: 200,000  
+- CIBIL: 820  
+
+**Output:**
+- Loan Approved ✅  
+- Risk Score: 30%  
 
 ## 🚀 Features
 
@@ -24,6 +41,13 @@ An AI-powered loan prediction system that analyzes financial data, calculates ri
 * 🌐 Interactive Web App using Streamlit
 
 ---
+
+## 📚 Key Learnings
+
+- Built end-to-end ML system  
+- Combined ML with rule-based logic  
+- Designed interactive UI using Streamlit  
+- Improved model reliability using domain rules
 
 ## 🧠 Tech Stack
 
