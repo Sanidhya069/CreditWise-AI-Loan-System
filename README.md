@@ -6,7 +6,7 @@ An AI-powered loan prediction system that analyzes financial data, calculates ri
 
 ## 🖥️ Application Preview
 
-<img src="assets/app.png" width="800"/>
+<img src="https://github.com/Sanidhya069/CreditWise-AI-Loan-System/blob/main/assests/app.png?raw=true"/>
 
 ## 🚀 Features
 
