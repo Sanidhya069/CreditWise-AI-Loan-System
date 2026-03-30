@@ -6,7 +6,7 @@ An AI-powered loan prediction system that analyzes financial data, calculates ri
 
 ## 🖥️ Application Preview
 
-![App Screenshot](assets/app.png)
+[App Screenshot](assets/app.png)
 
 ## 🚀 Features
 
