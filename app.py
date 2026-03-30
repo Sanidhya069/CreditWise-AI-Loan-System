@@ -45,7 +45,7 @@ if st.button("Predict", key="predict_button"):
     risk_score = int((1 - probability) * 100)
     
     debt_ratio = loan_amount / income if income != 0 else 999
-    # RULE-BASED
+    
     if income < loan_amount * 0.3 or cibil_score < 500:
         prediction = 0   # Force reject
         risk_score = max(risk_score, 80)
@@ -53,6 +53,11 @@ if st.button("Predict", key="predict_button"):
     if debt_ratio > 5:
        prediction = 0
        risk_score = max(risk_score, 85)
+
+    # FORCE APPROVAL
+if cibil_score > 750 and debt_ratio < 0.5:
+    prediction = 1
+    risk_score = min(risk_score, 30)   
 
     st.subheader("📊 Prediction Result")
 
