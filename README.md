@@ -8,6 +8,12 @@ An AI-powered loan prediction system that analyzes financial data, calculates ri
 
 <img src="https://github.com/Sanidhya069/CreditWise-AI-Loan-System/blob/main/assests/app.png?raw=true"/>
 
+## 📊 Prediction Result (Approved)
+<img src="https://github.com/Sanidhya069/CreditWise-AI-Loan-System/blob/main/assests/approved.png?raw=true"/>
+
+## ⚠️ Prediction Result (Rejected)
+<img src="https://github.com/Sanidhya069/CreditWise-AI-Loan-System/blob/main/assests/rejected.png?raw=true"/>
+
 ## 🚀 Features
 
 * 📊 Loan Approval Prediction using Machine Learning
