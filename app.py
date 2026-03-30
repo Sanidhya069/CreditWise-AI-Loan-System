@@ -65,7 +65,7 @@ if st.button("Predict", key="predict_button"):
 
     with col1:
         if prediction == 1:
-            st.success("✅ Loan Approved")
+            st.success("✅ Loan Approved (Low Risk)")
         else:
             st.error("❌ Loan Rejected")
 
