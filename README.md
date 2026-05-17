@@ -1,11 +1,10 @@
----
-
 ## 🖥️ Application Preview
 
 <img src="https://github.com/Sanidhya069/CreditWise-AI-Loan-System/blob/main/assests/app.png?raw=true"/>
 
 ## 📊 Prediction Result (Approved)
-@@ -14,6 +13,24 @@
+<img src="https://github.com/Sanidhya069/CreditWise-AI-Loan-System/blob/main/assests/approved.png?raw=true"/>
+
 ## ⚠️ Prediction Result (Rejected)
 <img src="https://github.com/Sanidhya069/CreditWise-AI-Loan-System/blob/main/assests/rejected.png?raw=true"/>
 
@@ -30,7 +29,6 @@
 ## 🚀 Features
 
 * 📊 Loan Approval Prediction using Machine Learning
-@@ -25,55 +42,62 @@
 
 ---
 
