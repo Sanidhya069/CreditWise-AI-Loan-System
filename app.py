@@ -65,18 +65,25 @@ if st.button("Predict", key="predict_button"):
     
     debt_ratio = loan_amount / income if income != 0 else 999
     
+    # 1. Negative & Zero Input Guardrail (Safety Check)
+    if income <= 0 or loan_amount <= 0:
+        st.error("⚠️ Please enter valid numbers greater than 0.")
+        st.stop()
+
+    # 2. Strict Rejection Rule
     if income < loan_amount * 0.3 or cibil_score < 500:
         prediction = 0   # Force reject
         risk_score = max(risk_score, 80)
 
+    # 3. High Debt Rejection
     if debt_ratio > 5:
-       prediction = 0
-       risk_score = max(risk_score, 85)
+        prediction = 0
+        risk_score = max(risk_score, 85)
 
-    # FORCE APPROVAL
-    if cibil_score > 750 and debt_ratio < 0.5:
-      prediction = 1
-      risk_score = min(risk_score, 30)   
+    # 4. THE FIX: Guaranteed Approval for Excellent Profiles
+    if cibil_score >= 750 and debt_ratio <= 0.5:
+        prediction = 1
+        risk_score = min(risk_score, 15)
 
     st.subheader("📊 Prediction Result")
 
