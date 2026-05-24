@@ -97,8 +97,16 @@ if st.button("Predict", key="predict_button"):
         st.info(f"🧠 Text Risk: {text_risk}")
 
     # LLM Advice
+# LLM Advice
     st.subheader("🤖 AI Financial Advice")
     advice = generate_advice(risk_score, income, loan_amount, cibil_score)
-    st.text(advice)
+    
+    # Make the advice visually pop based on the risk score
+    if risk_score > 70:
+        st.error(advice)
+    elif risk_score > 40:
+        st.warning(advice)
+    else:
+        st.success(advice)
 
     st.divider()
