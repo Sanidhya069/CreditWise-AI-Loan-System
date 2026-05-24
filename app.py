@@ -89,7 +89,14 @@ if st.button("Predict", key="predict_button"):
             st.error("❌ Loan Rejected")
 
     with col2:
-        st.metric("Risk Score", f"{risk_score}%")
+        st.metric(
+            "Risk Score", 
+            f"{risk_score}%", 
+            help="0% is guaranteed approval, 100% is guaranteed rejection."
+        )
+        # Create a visual progress bar (clamped between 0.0 and 1.0 for safety)
+        safe_risk = min(100, max(0, risk_score))
+        st.progress(safe_risk / 100)
 
     # NLP
     if text_input:
