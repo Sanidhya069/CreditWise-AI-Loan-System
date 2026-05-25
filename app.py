@@ -65,7 +65,7 @@ if st.button("Predict", key="predict_button"):
     
     debt_ratio = loan_amount / income if income != 0 else 999
     
-    # 1. Negative & Zero Input Guardrail (Safety Check)
+    # 1. Negative & Zero Input Guardrail 
     if income <= 0 or loan_amount <= 0:
         st.error("⚠️ Please enter valid numbers greater than 0.")
         st.stop()
@@ -97,20 +97,24 @@ if st.button("Predict", key="predict_button"):
 
     with col2:
         st.metric(
-            "Risk Score", 
-            f"{risk_score}%", 
-            help="0% is guaranteed approval, 100% is guaranteed rejection."
+            "Approval Odds", 
+            f"{100 - risk_score}%", 
+            help="Higher is better. Based on your financial profile."
         )
-        # Create a visual progress bar (clamped between 0.0 and 1.0 for safety)
-        safe_risk = min(100, max(0, risk_score))
-        st.progress(safe_risk / 100)
+        # Flip the progress bar so green/full = good (Approval Odds)
+        safe_odds = min(100, max(0, 100 - risk_score))
+        st.progress(safe_odds / 100)
 
-    # NLP
-    if text_input:
-        text_risk = predict_text_risk(text_input)
-        st.info(f"🧠 Text Risk: {text_risk}")
+    # Technical Details Expander (Hides the raw ML metrics)
+    with st.expander("🔍 View Technical Assessment Details"):
+        st.caption("Raw machine learning metrics used for this decision.")
+        st.write(f"**Calculated Risk Score:** {risk_score}%")
+        st.write(f"**Debt-to-Income Ratio:** {debt_ratio:.2f}")
+        
+        if text_input:
+            text_risk = predict_text_risk(text_input)
+            st.info(f"🧠 NLP Sentiment Analysis: {text_risk}")
 
-    # LLM Advice
 # LLM Advice
     st.subheader("🤖 AI Financial Advice")
     advice = generate_advice(risk_score, income, loan_amount, cibil_score)
