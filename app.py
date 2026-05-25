@@ -33,6 +33,13 @@ cibil_score = st.slider(
     help="Your current credit score. Higher scores lower your risk profile."
 )
 
+loan_term = st.selectbox(
+    "Loan Term (Months)",
+    options=[12, 36, 60, 120, 180, 360],
+    index=5,
+    help="Duration of the loan. Standard mortgages are 360 months."
+)
+
 text_input = st.text_area(
     "Describe your financial situation",
     help="Our NLP engine analyzes this text for financial sentiment and risk factors."
@@ -45,12 +52,12 @@ if st.button("Predict", key="predict_button"):
 
     input_data = np.array([[
         0,          # loan_id
-        2,          # dependents
+        0,          # dependents (lowered to 0 to remove baseline penalty)
         1,          # education
         0,          # self_employed
         income,
         loan_amount,
-        12,         # loan_term
+        loan_term,  # <--- Dynamic user input instead of hardcoded 12
         cibil_score,
         assets,
         0,
@@ -115,7 +122,7 @@ if st.button("Predict", key="predict_button"):
             text_risk = predict_text_risk(text_input)
             st.info(f"🧠 NLP Sentiment Analysis: {text_risk}")
 
-# LLM Advice
+    # LLM Advice
     st.subheader("🤖 AI Financial Advice")
     advice = generate_advice(risk_score, income, loan_amount, cibil_score)
     
@@ -129,24 +136,23 @@ if st.button("Predict", key="predict_button"):
 
     st.divider()
 
-# Application Receipt Export
+    # Application Receipt Export
     st.download_button(
         label="📥 Download AI Assessment Receipt",
-        data=f"CREDITWISE AI LOAN ASSESSMENT\n\nIncome: ${income}\nLoan Amount: ${loan_amount}\nCIBIL: {cibil_score}\n\nAI ADVICE:\n{advice}",
+        data=f"CREDITWISE AI LOAN ASSESSMENT\n\nIncome: ${income}\nLoan Amount: ${loan_amount}\nCIBIL: {cibil_score}\nLoan Term: {loan_term} Months\n\nAI ADVICE:\n{advice}",
         file_name="creditwise_assessment.txt",
         mime="text/plain"
     )
 
-
 # Compliance and Legal Disclaimer
-    st.markdown("---")
-    st.markdown(
-        """
-        <div style='text-align: center; color: #666; font-size: 0.75rem;'>
-            <b>Disclaimer:</b> CreditWise AI is an educational demonstration. 
-            The financial advice and risk scores provided by this AI model do not constitute official financial, legal, or professional advice. 
-            Always consult with a certified financial planner before making loan decisions.
-        </div>
-        """, 
-        unsafe_allow_html=True
-    )
+st.markdown("---")
+st.markdown(
+    """
+    <div style='text-align: center; color: #666; font-size: 0.75rem;'>
+        <b>Disclaimer:</b> CreditWise AI is an educational demonstration. 
+        The financial advice and risk scores provided by this AI model do not constitute official financial, legal, or professional advice. 
+        Always consult with a certified financial planner before making loan decisions.
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
