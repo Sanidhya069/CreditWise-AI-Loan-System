@@ -136,3 +136,17 @@ if st.button("Predict", key="predict_button"):
         file_name="creditwise_assessment.txt",
         mime="text/plain"
     )
+
+
+# Compliance and Legal Disclaimer
+    st.markdown("---")
+    st.markdown(
+        """
+        <div style='text-align: center; color: #666; font-size: 0.75rem;'>
+            <b>Disclaimer:</b> CreditWise AI is an educational demonstration. 
+            The financial advice and risk scores provided by this AI model do not constitute official financial, legal, or professional advice. 
+            Always consult with a certified financial planner before making loan decisions.
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
