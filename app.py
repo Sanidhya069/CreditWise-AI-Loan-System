@@ -124,3 +124,11 @@ if st.button("Predict", key="predict_button"):
         st.success(advice)
 
     st.divider()
+
+# Application Receipt Export
+    st.download_button(
+        label="📥 Download AI Assessment Receipt",
+        data=f"CREDITWISE AI LOAN ASSESSMENT\n\nIncome: ${income}\nLoan Amount: ${loan_amount}\nCIBIL: {cibil_score}\n\nAI ADVICE:\n{advice}",
+        file_name="creditwise_assessment.txt",
+        mime="text/plain"
+    )
