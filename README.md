@@ -19,7 +19,7 @@ An enterprise-grade, AI-powered financial application that predicts loan approva
 
 - **ML Model** → Loan prediction  
 - **NLP Module** → Text risk analysis  
-- **LLM Module** → Financial advice generation  
+- **Rule-Based Advisor** → Financial recommendations based on predefined rules  
 - **Streamlit** → User Interface
 
 ---
@@ -29,7 +29,7 @@ An enterprise-grade, AI-powered financial application that predicts loan approva
 * **Machine Learning Risk Assessment:** Evaluates financial profiles using a Scikit-Learn model to generate precise "Approval Odds" and risk scores.
 * **Dynamic Loan Logic:** Calculates debt-to-income ratios and adjusts risk profiles based on user-selected loan terms (12 to 360 months).
 * **NLP Sentiment Analysis:** Analyzes free-text user financial descriptions to detect hidden risk factors and financial stability.
-* **LLM Financial Advice:** Generates personalized, color-coded financial recommendations based on the user's specific risk bracket.
+* **Rule-Based Financial Advice:** Generates personalized, color-coded financial recommendations based on the user's specific risk bracket.
 * **Enterprise UI/UX:** Features technical metric expanders, visual progress bars, accessibility tooltips, and input validation guardrails.
 * **Exportable Receipts:** Users can download a `.txt` receipt of their AI financial assessment for their records.
 
@@ -66,7 +66,7 @@ An enterprise-grade, AI-powered financial application that predicts loan approva
 * **Frontend:** Streamlit
 * **Machine Learning:** Scikit-Learn, Pandas, NumPy (Random Forest / Classification)
 * **Natural Language Processing:** Custom NLP Module (TF-IDF + Logistic Regression)
-* **Generative AI:** Custom LLM Advisor Module
+* **Financial Recommendation Logic:** Rule-based advisor module
 
 ---
 
